@@ -1,0 +1,31 @@
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: "2025-11-05T18:16:22Z"
+  labels:
+    app: events-web
+  name: events-web-svc
+  namespace: default
+  resourceVersion: "7290"
+  uid: a28db222-b1ac-4752-a893-352690328ed1
+spec:
+  allocateLoadBalancerNodePorts: true
+  clusterIP: 10.106.47.25
+  clusterIPs:
+  - 10.106.47.25
+  externalTrafficPolicy: Cluster
+  internalTrafficPolicy: Cluster
+  ipFamilies:
+  - IPv4
+  ipFamilyPolicy: SingleStack
+  ports:
+  - nodePort: 30371
+    port: 80
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    app: events-web
+  sessionAffinity: None
+  type: LoadBalancer
+status:
+  loadBalancer: {}
